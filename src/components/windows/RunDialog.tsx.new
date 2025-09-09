@@ -1,0 +1,30 @@
+export const RunDialog = () => {
+  const handleRun = () => {
+    alert("Running command...");
+  };
+
+  return (
+    <div className="flex flex-col">
+      <div className="win95-sunken-border p-4">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-2xl">🏃</span>
+          <span className="text-xs font-bold">Type the name of a program, folder, document, or internet resource, and Windows will open it for you.</span>
+        </div>
+        
+        <div className="flex gap-2 items-center">
+          <div className="text-xs w-12">Open:</div>
+          <input type="text" className="win95-sunken-border text-xs flex-1 h-5" />
+        </div>
+      </div>
+      
+      <div className="flex justify-end gap-2 mt-4">
+        <button 
+          className="win95-button px-4 py-1 text-xs"
+          onClick={handleRun}
+        >OK</button>
+        <button className="win95-button px-4 py-1 text-xs">Cancel</button>
+        <button className="win95-button px-4 py-1 text-xs">Browse...</button>
+      </div>
+    </div>
+  );
+};

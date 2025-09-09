@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Windows 95 Design System - Authentic retro computing aesthetics */
+
+@import url('https://fonts.googleapis.com/css2?family=MS+Sans+Serif:wght@400;700&display=swap');
+
+@layer base {
+  :root {
+    /* Windows 95 Classic Colors */
+    --win95-gray: 0 0% 75%;           /* #C0C0C0 - Main gray background */
+    --win95-dark-gray: 0 0% 50%;     /* #808080 - Dark gray borders */
+    --win95-light-gray: 0 0% 87%;    /* #DFDFDF - Light gray highlights */
+    --win95-blue: 240 100% 25%;      /* #000080 - Title bar blue */
+    --win95-light-blue: 240 86% 58%; /* #3366FF - Hover blue */
+    --win95-white: 0 0% 100%;        /* #FFFFFF - White text/highlights */
+    --win95-black: 0 0% 0%;          /* #000000 - Black text */
+    --win95-green: 120 100% 25%;     /* #008000 - Start button green */
+    --win95-red: 0 100% 50%;         /* #FF0000 - Error/close button */
+    
+    /* Desktop Colors */
+    --desktop-bg: var(--win95-gray);
+    --window-bg: var(--win95-gray);
+    --title-bar-bg: var(--win95-blue);
+    --title-bar-fg: var(--win95-white);
+    --taskbar-bg: var(--win95-gray);
+    --start-btn-bg: var(--win95-green);
+    
+    /* Button 3D Effects */
+    --button-light: var(--win95-light-gray);
+    --button-shadow: var(--win95-dark-gray);
+    --button-dark-shadow: 0 0% 25%;
+    
+    /* Typography */
+    --font-system: 'MS Sans Serif', 'Segoe UI', monospace;
+    
+    /* Legacy theme mappings for components */
+    --background: var(--win95-gray);
+    --foreground: var(--win95-black);
+    --card: var(--win95-gray);
+    --card-foreground: var(--win95-black);
+    --popover: var(--win95-gray);
+    --popover-foreground: var(--win95-black);
+    --primary: var(--win95-blue);
+    --primary-foreground: var(--win95-white);
+    --secondary: var(--win95-light-gray);
+    --secondary-foreground: var(--win95-black);
+    --muted: var(--win95-light-gray);
+    --muted-foreground: var(--win95-dark-gray);
+    --accent: var(--win95-light-blue);
+    --accent-foreground: var(--win95-white);
+    --destructive: var(--win95-red);
+    --destructive-foreground: var(--win95-white);
+    --border: var(--win95-dark-gray);
+    --input: var(--win95-white);
+    --ring: var(--win95-blue);
+    --radius: 0px; /* Windows 95 has sharp corners */
+  }
+
+  /* Windows 95 doesn't have dark mode - authentic experience */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-system);
+    font-size: 11px; /* Windows 95 default font size */
+    margin: 0;
+    overflow: hidden; /* Full desktop experience */
+    cursor: default;
+  }
+
+  /* Windows 95 3D Button Effects */
+  .win95-button {
+    @apply bg-background border-2;
+    border-top-color: hsl(var(--button-light));
+    border-left-color: hsl(var(--button-light));
+    border-right-color: hsl(var(--button-shadow));
+    border-bottom-color: hsl(var(--button-shadow));
+    font-family: var(--font-system);
+    font-size: 11px;
+    padding: 2px 6px;
+    cursor: pointer;
+  }
+
+  .win95-button:active,
+  .win95-button.pressed {
+    border-top-color: hsl(var(--button-shadow));
+    border-left-color: hsl(var(--button-shadow));
+    border-right-color: hsl(var(--button-light));
+    border-bottom-color: hsl(var(--button-light));
+  }
+
+  /* Window Chrome */
+  .win95-window {
+    background-color: hsl(var(--win95-gray));
+    border: 2px solid;
+    border-top-color: hsl(var(--button-light));
+    border-left-color: hsl(var(--button-light));
+    border-right-color: hsl(var(--button-shadow));
+    border-bottom-color: hsl(var(--button-shadow));
+    font-family: var(--font-system);
+    font-size: 11px;
+  }
+  
+  .shadow-win95 {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .win95-title-bar {
+    @apply text-white px-1 py-0.5 flex items-center justify-between;
+    background: linear-gradient(90deg, 
+      hsl(var(--win95-blue)) 0%, 
+      hsl(var(--win95-light-blue)) 50%, 
+      hsl(var(--win95-blue)) 100%);
+    font-weight: bold;
+    font-size: 11px;
+    height: 18px;
+  }
+
+  /* Desktop Icons */
+  .desktop-icon {
+    @apply flex flex-col items-center justify-center p-1 rounded-none;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    font-size: 11px;
+    color: hsl(var(--win95-white));
+    text-shadow: 1px 1px 1px hsl(var(--win95-black));
+  }
+
+  .desktop-icon:hover {
+    background: rgba(0, 0, 128, 0.3);
+  }
+
+  .desktop-icon.selected {
+    background: hsl(var(--win95-blue));
+    color: hsl(var(--win95-white));
+  }
+  
+  .desktop-icon.selected img {
+    filter: brightness(1.2);
+  }
+  
+  .desktop-icon span {
+    text-align: center;
+    width: 60px;
+    overflow-wrap: break-word;
+  }
+
+  /* Taskbar */
+  .taskbar {
+    @apply bg-background border-t-2 px-1 py-0.5 flex items-center;
+    border-top-color: hsl(var(--button-light));
+    height: 28px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  /* Start Button */
+  .start-button {
+    @apply win95-button flex items-center;
+    background: hsl(var(--win95-gray));
+    color: hsl(var(--win95-black));
+    font-weight: bold;
+    min-width: 54px;
+    height: 22px;
+    font-size: 11px;
+  }
+  
+  /* Windows 95 Logo */
+  .windows-logo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5px;
+  }
+
+  /* Scrollbars */
+  .win95-scrollbar::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+
+  .win95-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--win95-gray));
+  }
+
+  .win95-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--win95-gray));
+    border: 1px solid hsl(var(--button-shadow));
+    border-top-color: hsl(var(--button-light));
+    border-left-color: hsl(var(--button-light));
+  }
+
+  .win95-scrollbar::-webkit-scrollbar-corner {
+    background: hsl(var(--win95-gray));
+  }
+
+  /* Selection highlight */
+  ::selection {
+    background: hsl(var(--win95-blue));
+    color: hsl(var(--win95-white));
+  }
+  
+  /* Sunken border (for text fields, address bars, etc.) */
+  .win95-sunken-border {
+    @apply bg-white;
+    border: 1px solid;
+    border-top-color: hsl(var(--button-shadow));
+    border-left-color: hsl(var(--button-shadow));
+    border-right-color: hsl(var(--button-light));
+    border-bottom-color: hsl(var(--button-light));
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+  }
+}

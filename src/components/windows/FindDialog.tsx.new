@@ -1,0 +1,84 @@
+export const FindDialog = () => {
+  const handleSearch = () => {
+    alert("Searching for files...");
+  };
+
+  return (
+    <div className="h-full flex flex-col">
+      <div className="win95-sunken-border p-4 mb-4">
+        <div className="text-xs font-bold mb-4">Find: Files or Folders</div>
+        
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-2 items-center">
+            <div className="text-xs w-24">Named:</div>
+            <input type="text" className="win95-sunken-border text-xs flex-1 h-5" />
+          </div>
+          
+          <div className="flex gap-2 items-center">
+            <div className="text-xs w-24">Look in:</div>
+            <select className="win95-sunken-border text-xs flex-1 h-5">
+              <option>(C:)</option>
+              <option>My Computer</option>
+              <option>Desktop</option>
+              <option>My Documents</option>
+            </select>
+          </div>
+          
+          <div className="flex gap-2 items-start mt-2">
+            <div className="w-24"></div>
+            <div className="flex-1">
+              <div className="win95-window p-2">
+                <div className="text-xs font-bold mb-2">Search options</div>
+                <div className="flex flex-col gap-2">
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-1" />
+                    <span className="text-xs">Search subfolders</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-1" />
+                    <span className="text-xs">Case sensitive</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-1" />
+                    <span className="text-xs">Include system folders</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="win95-sunken-border p-4 mb-4 flex-1 overflow-auto">
+        <div className="text-xs font-bold mb-2">Search Results:</div>
+        
+        <div className="grid grid-cols-1 gap-1">
+          <div className="flex items-center gap-2 p-1 text-xs">
+            <span className="text-base">📄</span>
+            <span>Resume.doc</span>
+            <span className="text-xs text-win95-dark-gray ml-auto">Document</span>
+          </div>
+          <div className="flex items-center gap-2 p-1 text-xs">
+            <span className="text-base">📄</span>
+            <span>Portfolio.pdf</span>
+            <span className="text-xs text-win95-dark-gray ml-auto">PDF Document</span>
+          </div>
+          <div className="flex items-center gap-2 p-1 text-xs">
+            <span className="text-base">📁</span>
+            <span>Projects</span>
+            <span className="text-xs text-win95-dark-gray ml-auto">File Folder</span>
+          </div>
+        </div>
+      </div>
+      
+      <div className="flex justify-end gap-2">
+        <button 
+          className="win95-button px-4 py-1 text-xs"
+          onClick={handleSearch}
+        >Find Now</button>
+        <button className="win95-button px-4 py-1 text-xs">Stop</button>
+        <button className="win95-button px-4 py-1 text-xs">Close</button>
+      </div>
+    </div>
+  );
+};

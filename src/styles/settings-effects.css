@@ -1,0 +1,160 @@
+/* Settings Effects */
+
+/* Mouse speeds - Apply to HTML to affect entire document */
+html.mouse-speed-1 {
+  --mouse-transition: all 0.5s ease;
+}
+
+html.mouse-speed-1 .desktop {
+  cursor: default;
+  transition: var(--mouse-transition);
+}
+
+html.mouse-speed-1 button, 
+html.mouse-speed-1 a, 
+html.mouse-speed-1 .win95-button {
+  cursor: pointer;
+  transition: var(--mouse-transition);
+}
+
+html.mouse-speed-2 {
+  --mouse-transition: all 0.3s ease;
+}
+
+html.mouse-speed-2 .desktop {
+  cursor: default;
+  transition: var(--mouse-transition);
+}
+
+html.mouse-speed-3 {
+  --mouse-transition: all 0.2s ease;
+}
+
+html.mouse-speed-3 .desktop {
+  cursor: default;
+  transition: var(--mouse-transition);
+}
+
+html.mouse-speed-4 {
+  --mouse-transition: all 0.1s ease;
+}
+
+html.mouse-speed-4 button,
+html.mouse-speed-4 a,
+html.mouse-speed-4 .win95-button,
+html.mouse-speed-4 [role="button"] {
+  cursor: pointer;
+  transition: var(--mouse-transition);
+}
+
+html.mouse-speed-5 {
+  --mouse-transition: all 0.05s ease;
+}
+
+html.mouse-speed-5 button,
+html.mouse-speed-5 a,
+html.mouse-speed-5 .win95-button,
+html.mouse-speed-5 [role="button"] {
+  cursor: crosshair; /* Different cursor to indicate fastest speed */
+  transition: var(--mouse-transition);
+}
+
+/* Mouse handedness - Apply to HTML to affect entire document */
+html.mouse-left-handed button,
+html.mouse-left-handed a,
+html.mouse-left-handed .win95-button,
+html.mouse-left-handed [role="button"] {
+  cursor: e-resize; /* Different cursor to simulate left-handed */
+}
+
+/* Screen resolutions - Apply to HTML for global effect */
+html.res-640x480 {
+  /* Scale entire UI to be larger to simulate lower resolution */
+  --content-scale: 1.2;
+  zoom: 1.2;
+}
+
+html.res-800x600 {
+  /* Default scale */
+  --content-scale: 1;
+  zoom: 1;
+}
+
+html.res-1024x768 {
+  /* Scale entire UI to be smaller to simulate higher resolution */
+  --content-scale: 0.8;
+  zoom: 0.8;
+}
+
+/* Color depth settings */
+html.color-16 {
+  filter: grayscale(0.9) contrast(1.2) brightness(0.9);
+}
+
+html.color-16 img, 
+html.color-16 .desktop {
+  filter: grayscale(1) brightness(0.95);
+  image-rendering: pixelated;
+}
+
+html.color-256 {
+  filter: saturate(0.6) contrast(1.1);
+}
+
+html.color-256 img, 
+html.color-256 .desktop {
+  filter: saturate(0.7);
+  image-rendering: pixelated;
+}
+
+html.color-16bit {
+  filter: saturate(1) contrast(1);
+}
+
+html.color-16bit img, 
+html.color-16bit .desktop {
+  filter: saturate(1.1);
+}
+
+html.color-24bit {
+  filter: saturate(1.2) contrast(1.05);
+}
+
+html.color-24bit img, 
+html.color-24bit .desktop {
+  filter: saturate(1.3) brightness(1.05);
+}
+
+/* Settings applied animation */
+html.settings-updated {
+  animation: flash 0.5s;
+}
+
+@keyframes flash {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+/* Additional UI feedback */
+html.settings-updated .desktop {
+  animation: flicker 0.3s;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  75% {
+    opacity: 0.9;
+  }
+}
