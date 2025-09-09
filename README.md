@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to your Lovable project
 
 ## Project info
@@ -71,3 +72,7 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+=======
+# windows95-portfolio
+A personal portfolio styled as a fully interactive Windows 95 desktop, complete with taskbar, start menu, retro windows and nostalgic gimmicks.
+>>>>>>> 0222c66724fff54c748afa6e0c9d0cc9515e820f

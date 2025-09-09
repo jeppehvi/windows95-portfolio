@@ -1,7 +1,8 @@
-import React, { createContext, useState, useContext, ReactNode } from "react";
+import React, { createContext, useContext, ReactNode } from "react";
 
+// Simplified settings context with default values only
 interface DisplaySettings {
-  resolution: number; // 1: 640x480, 2: 800x600, 3: 1024x768
+  resolution: number;
   colorDepth: string;
 }
 
@@ -16,7 +17,7 @@ interface MouseSettings {
 }
 
 interface SystemSettings {
-  // Add system settings as needed
+  // Placeholder for any future system settings
 }
 
 interface SettingsContextType {
@@ -30,10 +31,11 @@ interface SettingsContextType {
   updateSystemSettings: (settings: Partial<SystemSettings>) => void;
 }
 
+// Default settings that won't change
 const defaultSettings: SettingsContextType = {
   display: {
-    resolution: 2, // Default to 800x600
-    colorDepth: "16-bit",
+    resolution: 2, // 800x600
+    colorDepth: "24-bit", // True Color
   },
   sound: {
     volume: 75,
@@ -41,13 +43,13 @@ const defaultSettings: SettingsContextType = {
   },
   mouse: {
     handedness: "right",
-    speed: 2,
+    speed: 3,
   },
   system: {},
-  updateDisplaySettings: () => {},
-  updateSoundSettings: () => {},
-  updateMouseSettings: () => {},
-  updateSystemSettings: () => {},
+  updateDisplaySettings: () => {}, // No-op function
+  updateSoundSettings: () => {},   // No-op function
+  updateMouseSettings: () => {},   // No-op function
+  updateSystemSettings: () => {},  // No-op function
 };
 
 const SettingsContext = createContext<SettingsContextType>(defaultSettings);
@@ -59,40 +61,9 @@ interface SettingsProviderProps {
 }
 
 export const SettingsProvider = ({ children }: SettingsProviderProps) => {
-  const [displaySettings, setDisplaySettings] = useState<DisplaySettings>(defaultSettings.display);
-  const [soundSettings, setSoundSettings] = useState<SoundSettings>(defaultSettings.sound);
-  const [mouseSettings, setMouseSettings] = useState<MouseSettings>(defaultSettings.mouse);
-  const [systemSettings, setSystemSettings] = useState<SystemSettings>(defaultSettings.system);
-
-  const updateDisplaySettings = (settings: Partial<DisplaySettings>) => {
-    setDisplaySettings(prev => ({ ...prev, ...settings }));
-  };
-
-  const updateSoundSettings = (settings: Partial<SoundSettings>) => {
-    setSoundSettings(prev => ({ ...prev, ...settings }));
-  };
-
-  const updateMouseSettings = (settings: Partial<MouseSettings>) => {
-    setMouseSettings(prev => ({ ...prev, ...settings }));
-  };
-
-  const updateSystemSettings = (settings: Partial<SystemSettings>) => {
-    setSystemSettings(prev => ({ ...prev, ...settings }));
-  };
-
+  // Simply return the provider with default settings
   return (
-    <SettingsContext.Provider
-      value={{
-        display: displaySettings,
-        sound: soundSettings,
-        mouse: mouseSettings,
-        system: systemSettings,
-        updateDisplaySettings,
-        updateSoundSettings,
-        updateMouseSettings,
-        updateSystemSettings,
-      }}
-    >
+    <SettingsContext.Provider value={defaultSettings}>
       {children}
     </SettingsContext.Provider>
   );
