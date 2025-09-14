@@ -118,7 +118,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📬 Contact
 
-Jeppe - [@jappehv](https://github.com/jeppehvi)
+Jeppe - [@jeppehvi](https://github.com/jeppehvi)
 
 Project Link: [https://github.com/jeppehvi/win95-portfolio](https://github.com/jeppehvi/win95-portfolio)
 
